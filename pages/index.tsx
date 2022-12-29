@@ -47,7 +47,7 @@ export default function Home() {
 
             <CatsPhotosSection />
 
-            <CatFactsSection />
+            {/* <CatFactsSection /> */}
 
           </div>
         </header>
