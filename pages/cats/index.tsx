@@ -15,7 +15,7 @@ async function fetchCats() {
   })
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const response  = await fetchCats()
   const { data } = response
   
