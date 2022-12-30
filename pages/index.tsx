@@ -20,14 +20,14 @@ export default function Home() {
 
       <Layout>
         <header>
-          <div className="container mx-auto px-40">
+          <div className="container mx-auto px-8 xl:px-40">
 
-            <div className="flex items-center justify-center gap-x-20 min-h-80vh">
-              <div className="flex flex-col gap-y-6 flex-wrap">
-                <h1 className='text-6xl text-dark'>
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-x-20 min-h-80vh mt-8">
+              <div className="flex flex-col gap-y-4 lg:gap-y-6 flex-wrap">
+                <h1 className='text-5xl xl:text-6xl text-dark'>
                   Make Your Day By <span className='text-primary font-bold'>Cats</span>
                 </h1>
-                <p className='text-2xl'>
+                <p className='lg:text-2xl text-darkSecondary'>
                   Discover new facts about them or be addicted on looking cute kittens
                 </p>
                 <div className="flex gap-x-4">
@@ -47,7 +47,7 @@ export default function Home() {
 
             <CatsPhotosSection />
 
-            {/* <CatFactsSection /> */}
+            <CatFactsSection />
 
           </div>
         </header>
@@ -57,21 +57,29 @@ export default function Home() {
 }
 
 const HeaderImage = () => (
-  <div className='flex flex-col'>
-    <Image src={OrangeCat} alt="" width={600} />
+  <div className='relative w-60 h-60 xl:w-80 xl:h-80 my-8'>
+    <Image src={OrangeCat} alt="" fill className='object-contain' />
   </div>
 )
 
 const PillSection = () => (
-  <section className='py-20 flex items-center w-full'>
-    <div className="flex rounded-full w-full py-10 relative home-pill-button">
-      <Image src={CuriousCat} alt="" className='absolute inset-y-0 left-0 h-full w-fit object-contain p-1' /> 
-      <div className='mx-auto text-center'>
-        <h2 className='text-4xl mb-2 font-bold'>
+  <section className='flex items-center w-full py-20'>
+    <div className="flex items-center rounded-full w-full py-1 relative home-pill-button">
+      <div className="relative w-20 h-20 lg:w-24 lg:h-24">
+        <Image
+          src={CuriousCat}
+          alt=""
+          className='sticky inset-y-0 object-cover p-1'
+          fill
+        />
+      </div>
+        
+      <div className='mx-auto text-center px-2'>
+        <h2 className='text-xl lg:text-4xl mb-2 font-bold'>
           Having a bad day?
         </h2>
-        <p className='text-xl text-darkSecondary'>
-          Take a rest and find cute cats to make you better &#128521;
+        <p className='text-sm lg:text-xl text-darkSecondary'>
+          Find funny cats to make you better &#128521;
         </p>
       </div>
     </div>

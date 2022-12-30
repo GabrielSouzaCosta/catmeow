@@ -17,6 +17,11 @@ body {
   background-image: linear-gradient(114.46deg, rgba(228, 158, 119, 0.5) 5.08%, rgba(228, 158, 119, 0.2) 98.04%);
 }
 
+.nav-background {
+  background: #fff;
+  background-image: linear-gradient(0deg, rgba(228, 158, 119, 0.2) 98.04%, rgba(228, 158, 119, 0.5) 5.08%);
+}
+
 .gradient-background {
   background: #fff;
   background-image: linear-gradient(114.46deg, rgba(228, 158, 119, 0.3) 5.08%, rgba(228, 158, 119, 0.2) 98.04%);

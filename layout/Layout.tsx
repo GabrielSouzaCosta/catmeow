@@ -10,7 +10,9 @@ const Layout = ({ children } : Props) => {
   return ( 
     <div className='min-h-screen flex flex-col justify-between body-background'>
         <Navbar />
-          { children }
+          <div>
+            { children }
+          </div>
         <Footer />
     </div>
   )

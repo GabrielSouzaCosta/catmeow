@@ -4,13 +4,13 @@ import { Logo } from '../components/ui'
 
 const Footer = () => {
   return (
-    <footer className='bg-dark font-secondary'>
+    <footer className='bg-dark font-secondary drop-shadow-[0_0px_-10px_rgba(0,0,0,0.25)]'>
 
       <div className='container mx-auto px-2 py-4'>
 
-        <div className='flex items-center justify-between'>
+        <div className='flex flex-col lg:flex-row items-center justify-between'>
           <Logo hasSlogan />
-          <ul className="flex gap-x-16 items-center text-light text-2xl">
+          <ul className="flex gap-x-6 lg:gap-x-16 items-center text-light lg:text-2xl mt-4 ">
               <li>
                   <Link href="/">
                       Home
@@ -38,13 +38,14 @@ const Footer = () => {
 
       <div className='py-2 bg-[#454545]'>
         <div className="container text-light mx-auto">
-          <div className="flex justify-between">
+          <div className="flex justify-between text-xs lg:text-lg px-2">
             <p>
               Copyright © 2022 CatMeow
             </p>
             <p>
-              Website developed by Gabriel S. Costa
+              Developed by Gabriel S. Costa
             </p>
+            
           </div>
         </div>
       </div>
