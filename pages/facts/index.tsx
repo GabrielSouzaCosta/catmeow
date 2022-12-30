@@ -38,17 +38,17 @@ const Facts = () => {
         </Head>
         <Layout>
           <div className="flex min-h-80vh items-center">
-            <div className='container mx-auto text-center py-2 xl:px-60'>
+            <div className='container mx-auto text-center py-2 px-6 xl:px-60'>
               { isLoading || isImageLoading ? 
                 <p>
                   Loading Fact...
                 </p>
                 :
                 <>
-                  <h1 className='text-center text-5xl text-dark my-4'>
+                  <h1 className='text-center text-4xl lg:text-5xl text-dark my-4'>
                     Cat Facts
                   </h1>
-                  <p className='text-darkSecondary text-2xl'>
+                  <p className='text-darkSecondary text-lg lg:text-2xl'>
                     &quot;{fact && fact?.data?.fact}&quot;
                   </p>
 

@@ -8,7 +8,7 @@ const Navbar = () => {
   const [ isSidebarToggled, setIsSidebarToggled ] = useState(false);
 
   return (
-    <div className="nav-background sticky top-0 inset-x-0 shadow-sm">
+    <div className="nav-background sticky top-0 inset-x-0 shadow-sm z-20">
         <nav className='bg-white/0.9 font-secondary z-20'>
             <div className='container py-1.5 mx-auto flex justify-between items-center lg:py-4 px-4 z-30 relative'>
                 <Logo />

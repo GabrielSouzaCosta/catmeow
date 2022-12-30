@@ -13,42 +13,42 @@ const About = () => {
             </title>
         </Head>
         <Layout>
-          <div className="container lg:px-96 mx-auto flex flex-col justify-center my-4">
+          <div className="container px-6 lg:px-96 mx-auto flex flex-col justify-center my-8 lg:my-4">
             <div className="mb-8">
-              <h1 className='text-center text-5xl text-dark mb-4'>
+              <h1 className='text-center text-3xl lg:text-5xl text-dark mb-4 font-semibold'>
                 About This Website
               </h1>
-              <p className='text-xl text-dark'>
+              <p className='text-lg lg:text-xl text-darkSecondary'>
                 <strong>MeowCat</strong> has the main objective to make people who are stressed from everyday relax while seeing lots of funny, cute and amazing cats. In addition, we want to provide you with interesting facts about these fellow animals.
               </p>
             </div>
 
             <div className="text-center">
-              <h2 className='text-center text-4xl text-dark mb-4'>
+              <h2 className='text-center text-2xl lg:text-4xl text-dark mb-4 font-semibold'>
                 Contact
               </h2>
-              <p className='text-xl text-dark'>
+              <p className='text-lg lg:text-xl text-darkSecondary'>
                 This Website was created by Gabriel Souza Costa.
               </p>
               <ul className='flex justify-center gap-x-4 mt-4'>
                 <li>
-                  <Link href="https://www.linkedin.com/in/gabriel-souza-costa-8443481bb/" target="_blank">
-                    <IoLogoLinkedin size={64} className="text-primary" />
+                  <Link href="https://www.linkedin.com/in/gabriel-souza-costa-8443481bb/" target="_blank" className='text-secondary hover:bg-white' >
+                    <IoLogoLinkedin size={64} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://github.com/GabrielSouzaCosta/" target="_blank">
-                    <IoLogoGithub size={64} className="text-primary" />
+                  <Link href="https://github.com/GabrielSouzaCosta/" target="_blank" className='text-secondary hover:text-white transition-all'>
+                    <IoLogoGithub size={64} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.instagram.com/__gabrielscosta__/" target="_blank">
-                    <IoLogoInstagram size={64} className="text-primary" />
+                  <Link href="https://www.instagram.com/__gabrielscosta__/" target="_blank" className='text-secondary hover:text-white transition-all'>
+                    <IoLogoInstagram size={64} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="mailto:gabrielsscosta2010@hotmail.com" target="_blank">
-                    <IoMailOutline size={64} className="text-primary" />
+                  <Link href="mailto:gabrielsscosta2010@hotmail.com" target="_blank" className='text-secondary hover:text-white transition-all'>
+                    <IoMailOutline size={64} />
                   </Link>
                 </li>
               </ul>

@@ -19,29 +19,8 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <header>
           <div className="container mx-auto px-8 xl:px-40">
-
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-x-20 min-h-80vh mt-8">
-              <div className="flex flex-col gap-y-4 lg:gap-y-6 flex-wrap">
-                <h1 className='text-5xl xl:text-6xl text-dark'>
-                  Make Your Day By <span className='text-primary font-bold'>Cats</span>
-                </h1>
-                <p className='lg:text-2xl text-darkSecondary'>
-                  Discover new facts about them or be addicted on looking cute kittens
-                </p>
-                <div className="flex gap-x-4">
-                  <ButtonPrimary>
-                    Cute Cats
-                  </ButtonPrimary>
-                  <ButtonPrimaryOutline>
-                    Cat Facts
-                  </ButtonPrimaryOutline>
-                </div>
-              </div>
-              <HeaderImage />
-            </div>
-
+            <Header />
 
             <PillSection />
 
@@ -50,22 +29,42 @@ export default function Home() {
             <CatFactsSection />
 
           </div>
-        </header>
       </Layout>
     </>
   )
 }
 
-const HeaderImage = () => (
-  <div className='relative w-60 h-60 xl:w-80 xl:h-80 my-8'>
-    <Image src={OrangeCat} alt="" fill className='object-contain' />
-  </div>
+const Header = () => (
+  <header>
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-x-20 min-h-80vh mt-8">
+      <div className="flex flex-col gap-y-4 lg:gap-y-6 flex-wrap">
+        <h1 className='text-5xl xl:text-6xl text-dark'>
+          Make Your Day By <span className='text-primary font-bold'>Cats</span>
+        </h1>
+        <p className='lg:text-2xl text-darkSecondary'>
+          Discover new facts about them or be addicted on looking cute kittens
+        </p>
+        <div className="flex gap-x-4">
+          <ButtonPrimary>
+            Cute Cats
+          </ButtonPrimary>
+          <ButtonPrimaryOutline>
+            Cat Facts
+          </ButtonPrimaryOutline>
+        </div>
+      </div>
+      <div className='relative w-60 h-60 xl:w-80 xl:h-80 my-8'>
+        <Image src={OrangeCat} alt="" fill className='object-contain' />
+      </div>
+    </div>
+  </header>
+  
 )
 
 const PillSection = () => (
   <section className='flex items-center w-full py-20'>
     <div className="flex items-center rounded-full w-full py-1 relative home-pill-button">
-      <div className="relative w-20 h-20 lg:w-24 lg:h-24">
+      <div className="relative w-16 h-16 lg:w-24 lg:h-24">
         <Image
           src={CuriousCat}
           alt=""
@@ -88,12 +87,12 @@ const PillSection = () => (
 
 const CatsPhotosSection = () => (
   <section className='flex min-h-80vh items-center w-full'>
-    <div className="flex justify-between gap-x-2 w-full">
+    <div className="flex flex-col lg:flex-row justify-between gap-x-2 w-full">
       <div className='mt-[15%]'>
-        <h4 className='text-dark text-5xl mb-1.5'>
-          Find Cute Cats
+        <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5'>
+          Cats Gallery
         </h4>
-        <p className='text-2xl mb-6 text-darkSecondary  '>
+        <p className='text-md lg:text-xl mb-6 text-darkSecondary'>
           Find cute and funny cats in the cats photos generator
         </p>
         <ButtonDark>
@@ -108,6 +107,7 @@ const CatsPhotosSection = () => (
           height={200}
           sizes="(max-width: 768px) 100vw, 50vw,
           "
+          className='mt-6 lg:mt-0'
         />
       
     </div>
@@ -116,13 +116,20 @@ const CatsPhotosSection = () => (
 
 const CatFactsSection = () => (
   <section className='flex min-h-80vh items-center w-full mb-16'>
-    <div className="flex gap-x-40 items-center w-full">
-      <Image src={CatButterfly} alt="" />
+    <div className="flex flex-col-reverse lg:flex-row gap-x-4 lg:gap-x-20 items-center w-full">
+      <div className="relative w-80 h-80 lg:h-[500px] lg:w-96">
+        <Image
+          src={CatButterfly}
+          alt=""
+          className='object-contain p-1 mt-4 lg:mt-0'
+          fill
+        />
+      </div>
       <div>
-        <h4 className='text-dark text-5xl mb-1.5'>
-          Cats Facts
+        <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5'>
+          Caty Facts
         </h4>
-        <p className='text-darkSecondary text-xl mb-8'>
+        <p className='text-darkSecondary text-md lg:text-xl mb-4 lg:mb-8'>
           Learn More about these smart and cute animals.
         </p>
         <ButtonWhite>
