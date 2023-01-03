@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { ButtonPrimary } from '../../components/ui/buttons'
 import Layout from '../../layout/Layout'
@@ -9,25 +9,38 @@ import Layout from '../../layout/Layout'
 const Facts = () => {
   const { isLoading, isError, data: fact, refetch, error } = useQuery('facts', fetchFact)
   const { isLoading: isImageLoading, isError: isImageError, data: cat, refetch: refetchImage, error: imageError } = useQuery('catImage', fetchCatImage)
-
-  console.log(fact?.data.fact)
+  const [catBlur, setCatBlur] = useState<string>("");
 
   function fetchFact() {
     return axios.get('https://catfact.ninja/fact')
   }
 
-  function fetchCatImage() {
-    return axios.get('https://api.thecatapi.com/v1/images/search', {
+  async function fetchCatImage() {
+    const response = await axios.get('https://api.thecatapi.com/v1/images/search', {
       headers: {
         'x-api-key': 'live_4hYkZYrHTAbWpEg7S9vKpeXATQU13uY8PXcOrO3xdbL9DLP3wNQ6MtnuEDc4w3tk'
       }
     })
+
+    axios.get('/api/blur', {
+      params: {
+          url: response.data[0].url
+      }
+    })
+    .then(res => {
+      setCatBlur(res.data.base64);
+    })
+
+    return response
+
   }
 
   async function getNewFact() {
     await refetchImage()
     refetch()
   }
+
+  console.log(isLoading, isImageLoading, catBlur, cat)
 
   return (
     <>
@@ -40,7 +53,7 @@ const Facts = () => {
           <div className="flex min-h-80vh items-center">
             <div className='container mx-auto text-center py-2 px-6 xl:px-60'>
               { isLoading || isImageLoading ? 
-                <p>
+                <p className='text-xl'>
                   Loading Fact...
                 </p>
                 :
@@ -58,7 +71,7 @@ const Facts = () => {
                       alt="Cat Image" 
                       className=' rounded-3xl object-cover' 
                       layout='fill'
-                      blurDataURL={'data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRm knyJckliyjqTzSlT54b6bk+h0R//2Q=='}
+                      blurDataURL={catBlur ? catBlur: 'data: '}
                       placeholder='blur'
                     />
                   </div>

@@ -17,7 +17,7 @@ const Logo = ({ hasSlogan } : Props) => {
         />
         {hasSlogan ? 
           <div>
-            <h1 className='text-3xl text-primary'>
+            <h1 className='text-3xl text-primary hover:text-light transition-all'>
               CatMeow
             </h1>
             <p className='text-light'>
@@ -25,7 +25,7 @@ const Logo = ({ hasSlogan } : Props) => {
             </p>
           </div>
           :
-          <h1 className='text-3xl text-primary'>
+          <h1 className='text-3xl text-primary hover:text-darkSecondary transition-all'>
               CatMeow
           </h1>
         }

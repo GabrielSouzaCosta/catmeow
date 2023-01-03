@@ -32,22 +32,22 @@ const About = () => {
               </p>
               <ul className='flex justify-center gap-x-4 mt-4'>
                 <li>
-                  <Link href="https://www.linkedin.com/in/gabriel-souza-costa-8443481bb/" target="_blank" className='text-secondary hover:bg-white' >
+                  <Link href="https://www.linkedin.com/in/gabriel-souza-costa-8443481bb/" target="_blank" className='text-secondary hover:text-dark' >
                     <IoLogoLinkedin size={64} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://github.com/GabrielSouzaCosta/" target="_blank" className='text-secondary hover:text-white transition-all'>
+                  <Link href="https://github.com/GabrielSouzaCosta/" target="_blank" className='text-secondary hover:text-dark transition-all'>
                     <IoLogoGithub size={64} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.instagram.com/__gabrielscosta__/" target="_blank" className='text-secondary hover:text-white transition-all'>
+                  <Link href="https://www.instagram.com/__gabrielscosta__/" target="_blank" className='text-secondary hover:text-dark transition-all'>
                     <IoLogoInstagram size={64} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="mailto:gabrielsscosta2010@hotmail.com" target="_blank" className='text-secondary hover:text-white transition-all'>
+                  <Link href="mailto:gabrielsscosta2010@hotmail.com" target="_blank" className='text-secondary hover:text-dark transition-all'>
                     <IoMailOutline size={64} />
                   </Link>
                 </li>
