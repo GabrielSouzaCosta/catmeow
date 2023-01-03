@@ -2,16 +2,21 @@ import axios, { AxiosResponse } from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import LazyImage from '../../components/LazyImage'
 import Layout from '../../layout/Layout'
 import useFetchCats from '../../utils/hooks/useFetchCats'
 
+type CatType = {
+  url: string,
+  base64: string,
+  id: string,
+}
+
 const Cats = () => {
   const { data, isLoading } : any = useFetchCats();
-  const [cats, setCats] = useState<any>([]);
-
+  const [cats, setCats] = useState<CatType[]>([]);
 
   async function getBlurredCats () {
     const blurCats = 
@@ -20,7 +25,10 @@ const Cats = () => {
               params: {
                   url: data.url
               }
-          }).then(res => setCats(prevState => { return [ ...prevState, { ...data, base64: res.data.base64 } ] }) )
+          })
+          .then(res => setCats((prevState: any) => prevState ? [...prevState, { ...data, base64: res.data.base64 }] : [{...data, base64: res.data.base64}] ) 
+          
+        )
       })
   }
   
@@ -49,7 +57,7 @@ const Cats = () => {
                 :
                 <div className='grid gap-8 grid-cols-1 lg:grid-cols-2 justify-center mx-auto mb-8'>
                   {
-                    cats.map( ({ url, id, base64 } : { url : string, id: string, base64: string })  => {
+                    cats.map( ({ url, id, base64 })  => {
                       return (
                         <LazyImage key={id} url={url} base64={base64} />
                       )
