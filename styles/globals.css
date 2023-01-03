@@ -35,3 +35,9 @@ body {
   background: linear-gradient(90.3deg, #F2D0BD 23.1%, rgba(242, 208, 189, 0.21) 99.28%);
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+li:hover {
+  opacity: 0.85;
+  transition: all 150ms;
+}
+

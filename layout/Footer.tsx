@@ -38,7 +38,7 @@ const Footer = () => {
 
       <div className='py-2 bg-[#454545]'>
         <div className="container text-light mx-auto">
-          <div className="flex justify-between text-xs lg:text-lg px-2">
+          <div className="flex justify-between text-xs lg:text-lg px-4 lg:px-2">
             <p>
               Copyright © 2022 CatMeow
             </p>

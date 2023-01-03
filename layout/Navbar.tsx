@@ -2,10 +2,13 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { Logo } from '../components/ui'
 import { Squash as Hamburger } from 'hamburger-react'
+import { useRouter } from 'next/router'
 
 
 const Navbar = () => {
   const [ isSidebarToggled, setIsSidebarToggled ] = useState(false);
+  const router = useRouter();
+  const currRoute = router.pathname;
 
   return (
     <div className="nav-background sticky top-0 inset-x-0 shadow-sm z-20">
@@ -15,19 +18,19 @@ const Navbar = () => {
                 <div className="lg:hidden" >
                     <Hamburger toggled={isSidebarToggled} onToggle={() => setIsSidebarToggled(prevState => !prevState)} color={isSidebarToggled ? '#E49E77' : '#505050'} />
                 </div>
-                <ul className="hidden lg:flex gap-x-16 items-center text-darkSecondary text-2xl ">
-                    <li>
-                        <Link href="/cats">
-                            Cats
+                <ul className="hidden lg:flex gap-x-16 items-center text-darkSecondary text-2xl">
+                    <li >
+                        <Link href="/cats" className={currRoute === '/cats' ? 'text-primary border-b border-primary' : 'hover:text-primary transition-all'}>
+                                Cats
                         </Link>
                     </li>
                     <li>
-                        <Link href="/facts">
+                        <Link href="/facts" className={currRoute === '/facts' ? 'text-primary border-b border-primary' : 'hover:text-primary transition-all'}>
                             Facts
                         </Link>
                     </li>
                     <li>
-                        <Link href="/about">
+                        <Link href="/about" className={currRoute === '/about' ? 'text-primary border-b border-primary' : 'hover:text-primary transition-all'}>
                             Abouts
                         </Link>
                     </li>
@@ -35,17 +38,17 @@ const Navbar = () => {
             </div>
             <aside className={ ` ${isSidebarToggled ? 'right-0' : '-right-60'} flex lg:hidden fixed inset-y-0 gradient-background transition-all duration-300 w-40 h-screen items-center z-20 drop-shadow-lg rounded-l-sm` }>
                 <ul className="flex flex-col gap-y-6 items-center text-darkSecondary text-2xl w-full">
-                    <li className='border-b border-primary'>
-                        <Link href="/cats">
+                    <li>
+                        <Link href="/cats" className={currRoute === '/cats' ? 'text-primary border-b border-primary' : 'hover:text-primary transition-all'}>
                             Cats
                         </Link>
                     </li>
-                    <li className='border-b border-primary'>
+                    <li className={currRoute === '/facts' ? 'text-primary border-b border-primary' : 'hover:text-primary transition-all'}>
                         <Link href="/facts">
                             Facts
                         </Link>
                     </li>
-                    <li className='border-b border-primary'>
+                    <li className={currRoute === '/about' ? 'text-primary border-b border-primary' : 'hover:text-primary transition-all'}>
                         <Link href="/about">
                             Abouts
                         </Link>

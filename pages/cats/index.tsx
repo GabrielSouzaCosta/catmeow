@@ -15,7 +15,7 @@ async function fetchCats() {
   })
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const response  = await fetchCats()
   const { data } = response
   
@@ -39,8 +39,6 @@ export async function getStaticProps() {
 
 const Cats = ({ initialCats }: any) => {
   const { isLoading, isError, data: cats, error } = useQuery('cats', fetchCats, { initialData: initialCats })
-
-  console.log(cats)
 
   return (
     <>
