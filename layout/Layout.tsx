@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useStateContext } from '../context/ContextProvider'
 import Footer from './Footer'
 import Navbar from './Navbar'
 
@@ -7,8 +8,10 @@ type Props = {
 }
 
 const Layout = ({ children } : Props) => {
+  const context = useStateContext();
+
   return ( 
-    <div className='min-h-screen flex flex-col justify-between body-background'>
+    <div className={`min-h-screen flex flex-col justify-between`}>
         <Navbar />
           <div>
             { children }

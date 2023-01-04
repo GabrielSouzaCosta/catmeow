@@ -38,10 +38,10 @@ const Header = () => (
   <header>
     <div className="flex flex-col lg:flex-row items-center justify-center gap-x-20 min-h-80vh mt-8">
       <div className="flex flex-col gap-y-4 lg:gap-y-6 flex-wrap">
-        <h1 className='text-5xl xl:text-6xl text-dark'>
+        <h1 className='text-5xl xl:text-6xl text-dark dark:text-lightSecondary'>
           Make Your Day By <span className='text-primary font-bold'>Cats</span>
         </h1>
-        <p className='lg:text-2xl text-darkSecondary'>
+        <p className='lg:text-2xl text-darkSecondary dark:text-lightSecondary'>
           Discover new facts about them or be addicted on looking cute kittens
         </p>
         <div className="flex gap-x-4">
@@ -74,7 +74,7 @@ const PillSection = () => (
       </div>
         
       <div className='mx-auto text-center px-2'>
-        <h2 className='text-xl lg:text-4xl mb-2 font-bold'>
+        <h2 className='text-xl lg:text-4xl mb-2 font-bold text-darkSecondary'>
           Having a bad day?
         </h2>
         <p className='text-sm lg:text-xl text-darkSecondary'>
@@ -89,10 +89,10 @@ const CatsPhotosSection = () => (
   <section className='flex min-h-80vh items-center w-full'>
     <div className="flex flex-col lg:flex-row justify-between gap-x-2 w-full">
       <div className='mt-[15%]'>
-        <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5'>
+        <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5 dark:text-light'>
           Cats Gallery
         </h4>
-        <p className='text-md lg:text-xl mb-6 text-darkSecondary'>
+        <p className='text-md lg:text-xl mb-6 text-darkSecondary dark:text-lightSecondary'>
           Find cute and funny cats in the cats photos generator
         </p>
         <ButtonDark>
@@ -126,10 +126,10 @@ const CatFactsSection = () => (
         />
       </div>
       <div>
-        <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5'>
+        <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5 dark:text-light'>
           Caty Facts
         </h4>
-        <p className='text-darkSecondary text-md lg:text-xl mb-4 lg:mb-8'>
+        <p className='text-darkSecondary text-md lg:text-xl mb-4 lg:mb-8 dark:text-lightSecondary'>
           Learn More about these smart and cute animals.
         </p>
         <ButtonWhite>

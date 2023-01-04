@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -13,7 +14,7 @@ module.exports = {
         dark: "#414141",
         darkSecondary: "#353535",
         light: "#F7F7F7",
-        lightSecondary: "#F1F1F1",
+        lightSecondary: "#F0F0F0",
         "light/0.9": '#f7f7f7F6',
       },
       minHeight: {

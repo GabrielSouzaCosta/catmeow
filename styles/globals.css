@@ -41,3 +41,11 @@ li:hover {
   transition: all 150ms;
 }
 
+.dark nav {
+  background-color: #414141f1;
+}
+.dark nav li {
+  color: #F7F7F7;
+}
+
+

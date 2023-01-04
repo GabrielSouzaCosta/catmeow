@@ -3,12 +3,16 @@ import React, { useState } from 'react'
 import { Logo } from '../components/ui'
 import { Squash as Hamburger } from 'hamburger-react'
 import { useRouter } from 'next/router'
+import { DarkModeSwitch } from 'react-toggle-dark-mode'
+import { useStateContext } from '../context/ContextProvider'
 
 
 const Navbar = () => {
   const [ isSidebarToggled, setIsSidebarToggled ] = useState(false);
   const router = useRouter();
   const currRoute = router.pathname;
+
+  const context = useStateContext();
 
   return (
     <div className="nav-background sticky top-0 inset-x-0 shadow-sm z-20">
@@ -34,6 +38,17 @@ const Navbar = () => {
                             Abouts
                         </Link>
                     </li>
+                    <div className="bg-light rounded-full p-2 shadow-2xl">
+                        {context?.theme &&
+                          <DarkModeSwitch
+                              checked={context?.theme === 'dark'}
+                              onChange={(checked) => context?.toggleTheme(checked)}
+                              sunColor={'#E49E77'}
+                              moonColor={'#000'}
+                              size={50}
+                          />
+                        }
+                    </div>
                 </ul>
             </div>
             <aside className={ ` ${isSidebarToggled ? 'right-0' : '-right-60'} flex lg:hidden fixed inset-y-0 gradient-background transition-all duration-300 w-40 h-screen items-center z-20 drop-shadow-lg rounded-l-sm` }>
@@ -53,6 +68,15 @@ const Navbar = () => {
                             Abouts
                         </Link>
                     </li>
+                    {context?.theme &&
+                      <DarkModeSwitch
+                          checked={context?.theme === 'dark'}
+                          onChange={(checked) => context?.toggleTheme(checked)}
+                          sunColor={'#E49E77'}
+                          moonColor={'#000'}
+                          size={50}
+                      />
+                    }
                 </ul>
             </aside>
         </nav>

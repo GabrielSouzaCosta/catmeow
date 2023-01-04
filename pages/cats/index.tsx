@@ -15,28 +15,7 @@ type CatType = {
 }
 
 const Cats = () => {
-  const { data, isLoading } : any = useFetchCats();
-  const [cats, setCats] = useState<CatType[]>([]);
-
-  async function getBlurredCats () {
-    const blurCats = 
-      data?.data.forEach(( data : { url: string } ) => {
-          axios.get('/api/blur', {
-              params: {
-                  url: data.url
-              }
-          })
-          .then(res => setCats((prevState: any) => prevState ? [...prevState, { ...data, base64: res.data.base64 }] : [{...data, base64: res.data.base64}] ) 
-          
-        )
-      })
-  }
-  
-  useEffect(() => {
-    if (!isLoading) {
-      getBlurredCats();
-    }
-  }, [isLoading]) 
+  const { data: cats, isLoading } : any = useFetchCats();
 
   return (
     <>
@@ -47,17 +26,17 @@ const Cats = () => {
         </Head>
         <Layout>
           <div className='container mx-auto px-20 text-center py-2'>
-              <h1 className='text-center text-5xl text-dark my-8'>
+              <h1 className='text-center text-5xl text-dark dark:text-primary my-8'>
                 Cats Gallery
               </h1>
               {isLoading ? 
-                <p>
+                <p className='dark:text-primary'>
                   Loading the most cute cats...
                 </p>
                 :
                 <div className='grid gap-8 grid-cols-1 lg:grid-cols-2 justify-center mx-auto mb-8'>
                   {
-                    cats.map( ({ url, id, base64 })  => {
+                    cats.data.map( ({ url, id, base64 })  => {
                       return (
                         <LazyImage key={id} url={url} base64={base64} />
                       )
