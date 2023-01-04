@@ -36,7 +36,7 @@ const Cats = () => {
                 :
                 <div className='grid gap-8 grid-cols-1 lg:grid-cols-2 justify-center mx-auto mb-8'>
                   {
-                    cats.data.map( ({ url, id, base64 })  => {
+                    cats.data.map( ({ url, id, base64 }: CatType)  => {
                       return (
                         <LazyImage key={id} url={url} base64={base64} />
                       )

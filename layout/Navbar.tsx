@@ -42,7 +42,7 @@ const Navbar = () => {
                         {context?.theme &&
                           <DarkModeSwitch
                               checked={context?.theme === 'dark'}
-                              onChange={(checked) => context?.toggleTheme(checked)}
+                              onChange={(checked) => context?.toggleTheme && context?.toggleTheme(checked)}
                               sunColor={'#E49E77'}
                               moonColor={'#000'}
                               size={50}
@@ -71,7 +71,7 @@ const Navbar = () => {
                     {context?.theme &&
                       <DarkModeSwitch
                           checked={context?.theme === 'dark'}
-                          onChange={(checked) => context?.toggleTheme(checked)}
+                          onChange={(checked) => context?.toggleTheme && context?.toggleTheme(checked)}
                           sunColor={'#E49E77'}
                           moonColor={'#000'}
                           size={50}

@@ -13,7 +13,7 @@ const Container = ({ Component, pageProps }: AppProps) => {
 		}
 	},)
 
-	if (!loaded) return ""
+	if (!loaded) return <div></div>
 	return (
 		<div className={context?.theme === 'dark' ? 'dark bg-darkSecondary': 'body-background'}>
 			<Component {...pageProps} />
