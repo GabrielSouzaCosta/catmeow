@@ -5,15 +5,15 @@ import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { ButtonPrimary } from '../../components/ui/buttons'
 import Layout from '../../layout/Layout'
+import useFetchFact from '../../utils/hooks/useFetchFact'
 import blurDataImage from '../../utils/services/blurDataImage'
+import { IoRefreshCircleOutline } from 'react-icons/io5'
 
 const Facts = () => {
-  const { isLoading, isError, data: fact, refetch, error } = useQuery('facts', fetchFact)
-  const { isLoading: isImageLoading, isError: isImageError, data: cat, refetch: refetchImage, error: imageError } = useQuery('catImage', fetchCatImage)
-
-  function fetchFact() {
-    return axios.get('https://catfact.ninja/fact')
-  }
+  const {  data: fact, isLoading, refetch, isRefetching } = useFetchFact();
+  const { isLoading: isImageLoading, isError: isImageError, data: cat, refetch: refetchImage, error: imageError } = useQuery('catImage', fetchCatImage, {
+    refetchInterval: 7000
+  })
 
   async function fetchCatImage() {
     return await axios.get('https://api.thecatapi.com/v1/images/search', {
@@ -25,8 +25,9 @@ const Facts = () => {
     })
   }
 
+  
   async function getNewFact() {
-    await refetchImage()
+    console.log(isRefetching)
     refetch()
   }
 
@@ -40,7 +41,7 @@ const Facts = () => {
 
         <Layout>
           <div className="flex min-h-80vh items-center">
-            <div className='container mx-auto text-center py-2 px-6 xl:px-60'>
+            <div className='container mx-auto text-center py-4 px-6 xl:px-60'>
               { isLoading || isImageLoading ? 
                 <p className='text-xl dark:text-primary'>
                   Loading Fact...
@@ -58,15 +59,18 @@ const Facts = () => {
                     <Image 
                       src={cat?.data[0].url} 
                       alt="Cat Image" 
-                      className=' rounded-3xl object-cover' 
+                      className=' rounded-3xl object-cover drop-shadow-xl' 
                       layout='fill'
                       blurDataURL={cat?.data[0].base64}
                       placeholder='blur'
                     />
                   </div>
 
-                  <ButtonPrimary onClick={getNewFact}>
-                    New Cat Fact
+                  <ButtonPrimary onClick={getNewFact} isLoading={isRefetching} loadingText={'Loading new fact..'}>
+                    <div className="flex items-center justify-center gap-x-2">
+                      <IoRefreshCircleOutline size={30} />
+                      New Cat Fact
+                    </div>
                   </ButtonPrimary>
                 </>
               }

@@ -7,7 +7,6 @@ export const getCats = async () => {
         'x-api-key': 'live_4hYkZYrHTAbWpEg7S9vKpeXATQU13uY8PXcOrO3xdbL9DLP3wNQ6MtnuEDc4w3tk'
         }
     }).then(res => {
-        console.log(res)
         return blurDataImage(res);
     }).catch(err => console.log(err))
 }

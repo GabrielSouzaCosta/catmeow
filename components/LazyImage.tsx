@@ -13,12 +13,12 @@ const LazyImage = ({
     base64
 } : Props) => {
   return (
-    <div className='w-full h-80 relative'>
+    <div className='w-full h-60 lg:h-80 relative'>
         <Image 
             src={url}
             alt="" 
             layout='fill' 
-            className="object-cover" 
+            className="object-cover rounded-md drop-shadow-2xl dark:drop-shadow-xl" 
             blurDataURL={base64}
             placeholder='blur'
         /> 

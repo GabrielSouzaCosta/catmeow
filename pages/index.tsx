@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react'
 import { ButtonPrimary, ButtonPrimaryOutline, ButtonWhite, ButtonDark } from '../components/ui/buttons'
 import Layout from '../layout/Layout'
 
@@ -7,8 +8,24 @@ import OrangeCat from '../public/images/orange-cat-sleeping.png'
 import CuriousCat from '../public/images/curious-cat.png'
 import SectionImage from '../public/images/section-image.png'
 import CatButterfly from '../public/images/cat-butterfly.png'
+import { useQueryClient } from 'react-query'
+import { getCats } from '../utils/services/getCats'
+import { getFact } from '../utils/services/getFact'
 
 export default function Home() {
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    const prefetchCats = async () => {
+      await queryClient.prefetchQuery('cats', getCats)
+    }
+    const prefetchFact = async () => {
+      await queryClient.prefetchQuery('fact', getFact)
+    }
+    prefetchCats();
+    prefetchFact();
+  })
+
   return (
     <>
       <Head>
@@ -54,7 +71,7 @@ const Header = () => (
         </div>
       </div>
       <div className='relative w-60 h-60 xl:w-80 xl:h-80 my-8'>
-        <Image src={OrangeCat} alt="" fill className='object-contain' />
+        <Image src={OrangeCat} alt="" fill className='object-contain hover:drop-shadow-xl transition-all duration-300' />
       </div>
     </div>
   </header>
@@ -63,7 +80,7 @@ const Header = () => (
 
 const PillSection = () => (
   <section className='flex items-center w-full py-20'>
-    <div className="flex items-center rounded-full w-full py-1 relative home-pill-button">
+    <div className="flex items-center rounded-full w-full py-1 relative home-pill-button hover:drop-shadow-xl transition-all duration-500">
       <div className="relative w-16 h-16 lg:w-24 lg:h-24">
         <Image
           src={CuriousCat}
@@ -107,7 +124,7 @@ const CatsPhotosSection = () => (
           height={200}
           sizes="(max-width: 768px) 100vw, 50vw,
           "
-          className='mt-6 lg:mt-0'
+          className='mt-6 lg:mt-0 hover:drop-shadow-xl transition-all duration-300'
         />
       
     </div>
@@ -121,7 +138,7 @@ const CatFactsSection = () => (
         <Image
           src={CatButterfly}
           alt=""
-          className='object-contain p-1 mt-4 lg:mt-0'
+          className='object-contain p-1 mt-4 lg:mt-0 hover:drop-shadow-xl transition-all duration-300'
           fill
         />
       </div>
