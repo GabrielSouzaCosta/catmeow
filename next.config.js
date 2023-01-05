@@ -4,8 +4,13 @@ const { withPlaiceholder } = require('@plaiceholder/next')
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'cdn2.thecatapi.com', '28.media.tumblr.com']
-  },
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  }
 }
 
 module.exports = withPlaiceholder(nextConfig)

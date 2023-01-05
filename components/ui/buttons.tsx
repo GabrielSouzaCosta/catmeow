@@ -43,7 +43,17 @@ export const ButtonPrimaryOutline = ({ children, ...props } : ButtonProps & Reac
     )
   }
 
-  export const ButtonDark = ({ children, ...props } : ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+  export const ButtonDark = ({ children, isLoading, loadingText, ...props } : ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+    if (isLoading) {
+      return (
+        <button { ...props } disabled className={baseButtonStyle+" disabled:opacity-75 bg-light align-middle text-primary border-primary font-bold transition-all duration-300"} >
+            <div className="flex items-center justify-center gap-x-2">
+              <div className="animate-spin w-5 h-5 border-b-0 border-l-0 border-primary border-2 rounded-full mr-2" />
+              { loadingText }
+            </div>
+        </button>
+      )
+    }
     return (
       <button { ...props } className={baseButtonStyle+" bg-dark dark:bg-transparent dark:border-light dark:text-light text-light border-dark hover:bg-light hover:text-dark dark:hover:border-light dark:hover:text-primary dark:hover:border-primary hover:drop-shadow-2xl font-bold transition-all duration-300"} >
           { children }

@@ -18,7 +18,7 @@ const LazyImage = ({
             src={url}
             alt="" 
             layout='fill' 
-            className="object-cover rounded-md drop-shadow-2xl dark:drop-shadow-xl" 
+            className="object-cover rounded-md drop-shadow-lg hover:drop-shadow-2xl dark:drop-shadow-xl transition-all duration-500" 
             blurDataURL={base64}
             placeholder='blur'
         /> 

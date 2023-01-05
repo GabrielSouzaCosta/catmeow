@@ -13,10 +13,7 @@ import { CatType } from '../../@types/cat'
 
 
 const Cats = () => {
-  const [cats, setCats] = useState<CatType[] | null>(null);
-  const { data, isLoading, refetch, isRefetching } = useFetchCats();
-
-  console.log(cats)  
+  const { data: cats, isLoading, refetch, isRefetching } = useFetchCats();
 
   return (
     <>
@@ -27,10 +24,10 @@ const Cats = () => {
         </Head>
         <Layout>
           <div className='container mx-auto px-6 lg:px-20 text-center py-4'>
-              <h1 className='text-center text-5xl text-dark dark:text-primary mt-6 mb-10'>
+              <h1 className='text-center text-3xl lg:text-5xl text-dark dark:text-primary mt-2 lg:mt-6 mb-6 lg:mb-10'>
                 Cats Gallery
               </h1>
-              {isLoading && !cats ? 
+              {isLoading ? 
                 <p className='dark:text-primary'>
                   Loading the most cute cats...
                 </p>
@@ -38,19 +35,21 @@ const Cats = () => {
                 <>
                   <div className='grid gap-8 grid-cols-1 lg:grid-cols-2 justify-center mx-auto mb-8'>
                     {
-                      data?.data.map( ({ url, id, base64 }: CatType)  => {
+                      cats?.data.map( ({ url, id, base64 }: CatType)  => {
                         return (
                           <LazyImage key={id} url={url} base64={base64} />
                           )
                         })
                     }
                   </div>
-                  <ButtonDark onClick={() => refetch()}>
-                      <div className="flex items-center gap-x-2">
-                        <IoAddOutline size={30} />
-                        Get More Cats
-                      </div>
-                  </ButtonDark>
+                  <div className="sticky bottom-0 pb-4">
+                    <ButtonDark onClick={() => refetch()} isLoading={isRefetching} loadingText="Loading New Cats  &#128062;">
+                        <div className="flex items-center gap-x-2">
+                          <IoAddOutline size={30} />
+                          Get More Cats
+                        </div>
+                    </ButtonDark>
+                  </div>
                 </>
                 
               }

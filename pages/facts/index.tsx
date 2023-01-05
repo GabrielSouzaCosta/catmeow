@@ -12,7 +12,7 @@ import { IoRefreshCircleOutline } from 'react-icons/io5'
 const Facts = () => {
   const {  data: fact, isLoading, refetch, isRefetching } = useFetchFact();
   const { isLoading: isImageLoading, isError: isImageError, data: cat, refetch: refetchImage, error: imageError } = useQuery('catImage', fetchCatImage, {
-    refetchInterval: 7000
+    refetchInterval: 4500
   })
 
   async function fetchCatImage() {
