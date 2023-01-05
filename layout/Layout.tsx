@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useStateContext } from '../context/ContextProvider'
+import CookiesBanner from './CookiesBanner'
 import Footer from './Footer'
 import Navbar from './Navbar'
 
@@ -16,6 +17,7 @@ const Layout = ({ children } : Props) => {
           <div>
             { children }
           </div>
+        <CookiesBanner />
         <Footer />
     </div>
   )

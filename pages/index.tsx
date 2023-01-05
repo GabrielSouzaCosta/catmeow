@@ -65,12 +65,12 @@ const Header = () => (
         <div className="flex gap-x-4">
           <Link href='/cats'>
             <ButtonPrimary>
-              &#128049; Cute Cats 
+              Cute Cats 
             </ButtonPrimary>
           </Link>
           <Link href='/facts'>
             <ButtonPrimaryOutline>
-               &#128008; Cat Facts
+              Cat Facts
             </ButtonPrimaryOutline>
           </Link>
         </div>
