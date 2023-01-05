@@ -1,6 +1,6 @@
 # CatMeow
 
-Catmeow is a website for generating random cat photos and also interesting facts about them.
+CatMeow is a website to generate random pictures of cats and also interesting facts about them.
 
 ## Tecnologies
 <ul>
