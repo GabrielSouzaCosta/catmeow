@@ -6,7 +6,7 @@ type ButtonProps = {
     loadingText?: string,
 }
 
-const baseButtonStyle = "rounded-full px-10 py-2 border";
+const baseButtonStyle = "rounded-full px-6 lg:px-10 py-2 border whitespace-nowrap";
 
 export const ButtonPrimary = ({ children, isLoading, loadingText, ...props } : ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   

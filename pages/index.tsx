@@ -11,6 +11,7 @@ import CatButterfly from '../public/images/cat-butterfly.png'
 import { useQueryClient } from 'react-query'
 import { getCats } from '../utils/services/getCats'
 import { getFact } from '../utils/services/getFact'
+import Link from 'next/link'
 
 export default function Home() {
   const queryClient = useQueryClient();
@@ -55,23 +56,27 @@ const Header = () => (
   <header>
     <div className="flex flex-col lg:flex-row items-center justify-center gap-x-20 min-h-80vh mt-8">
       <div className="flex flex-col gap-y-4 lg:gap-y-6 flex-wrap">
-        <h1 className='text-5xl xl:text-6xl text-dark dark:text-lightSecondary'>
-          Make Your Day By <span className='text-primary font-bold'>Cats</span>
+        <h1 className='text-4xl xl:text-6xl text-dark dark:text-lightSecondary'>
+          Make Your Day Better With <span className='text-primary font-bold'>Cats</span>
         </h1>
         <p className='lg:text-2xl text-darkSecondary dark:text-lightSecondary'>
-          Discover new facts about them or be addicted on looking cute kittens
+          Discover new facts about them or get addicted to looking at kittens
         </p>
         <div className="flex gap-x-4">
-          <ButtonPrimary>
-            Cute Cats
-          </ButtonPrimary>
-          <ButtonPrimaryOutline>
-            Cat Facts
-          </ButtonPrimaryOutline>
+          <Link href='/cats'>
+            <ButtonPrimary>
+              &#128049; Cute Cats 
+            </ButtonPrimary>
+          </Link>
+          <Link href='/facts'>
+            <ButtonPrimaryOutline>
+               &#128008; Cat Facts
+            </ButtonPrimaryOutline>
+          </Link>
         </div>
       </div>
       <div className='relative w-60 h-60 xl:w-80 xl:h-80 my-8'>
-        <Image src={OrangeCat} alt="" fill className='object-contain hover:drop-shadow-xl transition-all duration-300' />
+        <Image src={OrangeCat} alt="" fill className='object-contain drop-shadow-2xl transition-all duration-300' />
       </div>
     </div>
   </header>
@@ -79,8 +84,8 @@ const Header = () => (
 )
 
 const PillSection = () => (
-  <section className='flex items-center w-full py-20'>
-    <div className="flex items-center rounded-full w-full py-1 relative home-pill-button hover:drop-shadow-xl transition-all duration-500">
+  <section className='flex items-center w-full py-4 lg:py-20'>
+    <div className="flex items-center rounded-full w-full py-1 relative home-pill-button drop-shadow-md transition-all duration-500">
       <div className="relative w-16 h-16 lg:w-24 lg:h-24">
         <Image
           src={CuriousCat}
@@ -95,7 +100,7 @@ const PillSection = () => (
           Having a bad day?
         </h2>
         <p className='text-sm lg:text-xl text-darkSecondary'>
-          Find funny cats to make you better &#128521;
+          Find funny cats to make it better &#128521;
         </p>
       </div>
     </div>
@@ -107,10 +112,10 @@ const CatsPhotosSection = () => (
     <div className="flex flex-col lg:flex-row justify-between gap-x-2 w-full">
       <div className='mt-[15%]'>
         <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5 dark:text-light'>
-          Cats Gallery
+          Cat Gallery
         </h4>
         <p className='text-md lg:text-xl mb-6 text-darkSecondary dark:text-lightSecondary'>
-          Find cute and funny cats in the cats photos generator
+          Find cute and funny cats in cat photo generator
         </p>
         <ButtonDark>
           I want to discover them!
@@ -124,7 +129,7 @@ const CatsPhotosSection = () => (
           height={200}
           sizes="(max-width: 768px) 100vw, 50vw,
           "
-          className='mt-6 lg:mt-0 hover:drop-shadow-xl transition-all duration-300'
+          className='mt-6 lg:mt-0 drop-shadow-xl'
         />
       
     </div>
@@ -132,26 +137,26 @@ const CatsPhotosSection = () => (
 )
 
 const CatFactsSection = () => (
-  <section className='flex min-h-80vh items-center w-full mb-16'>
-    <div className="flex flex-col-reverse lg:flex-row gap-x-4 lg:gap-x-20 items-center w-full">
-      <div className="relative w-80 h-80 lg:h-[500px] lg:w-96">
-        <Image
-          src={CatButterfly}
-          alt=""
-          className='object-contain p-1 mt-4 lg:mt-0 hover:drop-shadow-xl transition-all duration-300'
-          fill
-        />
-      </div>
-      <div>
+  <section className='flex min-h-80vh items-center w-full mt-20 mb-16'>
+    <div className="flex flex-col justify-center w-full">
+      <div className='text-center'>
         <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5 dark:text-light'>
-          Caty Facts
+          Cat Facts
         </h4>
-        <p className='text-darkSecondary text-md lg:text-xl mb-4 lg:mb-8 dark:text-lightSecondary'>
+        <p className='text-darkSecondary text-md lg:text-xl mb-6 dark:text-lightSecondary'>
           Learn More about these smart and cute animals.
         </p>
         <ButtonWhite>
           Learn More About Cats
         </ButtonWhite>
+      </div>
+      <div className="relative w-80 h-80 lg:h-[500px] lg:w-96 mx-auto mt-4 lg:mt-8">
+        <Image
+          src={CatButterfly}
+          alt=""
+          className='object-contain mt-4 lg:mt-0 hover:drop-shadow-xl transition-all duration-300'
+          fill
+        />
       </div>
     </div>
   </section>
