@@ -117,21 +117,23 @@ const CatsPhotosSection = () => (
         <p className='text-md lg:text-xl mb-6 text-darkSecondary dark:text-lightSecondary'>
           Find cute and funny cats in cat photo generator
         </p>
-        <ButtonDark>
-          I want to discover them!
-        </ButtonDark>
+        <Link href='/cats'>
+          <ButtonDark>
+            I want to discover them!
+          </ButtonDark>
+        </Link>
       </div>
       
-        <Image 
-          src={'/images/section-image.png'} 
-          alt="" 
-          width={600}
-          height={200}
-          sizes="(max-width: 768px) 100vw, 50vw,
-          "
-          className='mt-6 lg:mt-0 drop-shadow-xl'
-        />
-      
+      <Image 
+        src={'/images/section-image.png'} 
+        alt="" 
+        width={600}
+        height={200}
+        sizes="(max-width: 768px) 100vw, 50vw,
+        "
+        className='mt-6 lg:mt-0 drop-shadow-xl'
+      />
+    
     </div>
   </section>
 )
@@ -146,9 +148,11 @@ const CatFactsSection = () => (
         <p className='text-darkSecondary text-md lg:text-xl mb-6 dark:text-lightSecondary'>
           Learn More about these smart and cute animals.
         </p>
-        <ButtonWhite>
-          Learn More About Cats
-        </ButtonWhite>
+        <Link href='/facts'>
+          <ButtonWhite>
+            Learn More About Cats
+          </ButtonWhite>
+        </Link>
       </div>
       <div className="relative w-80 h-80 lg:h-[500px] lg:w-96 mx-auto mt-4 lg:mt-8">
         <Image
