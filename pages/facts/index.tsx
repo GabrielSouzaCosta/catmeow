@@ -27,7 +27,6 @@ const Facts = () => {
 
   
   async function getNewFact() {
-    console.log(isRefetching)
     refetch()
   }
 

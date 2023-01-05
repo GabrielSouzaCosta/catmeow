@@ -8,5 +8,5 @@ export const getCats = async () => {
         }
     }).then(res => {
         return blurDataImage(res);
-    }).catch(err => console.log(err))
+    })
 }
