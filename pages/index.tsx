@@ -139,7 +139,7 @@ const CatsPhotosSection = () => (
 )
 
 const CatFactsSection = () => (
-  <section className='flex min-h-80vh items-center w-full mt-20 mb-16'>
+  <section className='flex min-h-80vh items-center w-full my-16'>
     <div className="flex flex-col justify-center w-full">
       <div className='text-center'>
         <h4 className='text-dark font-bold text-3xl lg:text-5xl mb-1.5 dark:text-light'>
