@@ -21,7 +21,7 @@ const CookiesBanner = () => {
     }
   }, [])
 
-  if (consented || !loaded) return '';
+  if (consented || !loaded) return <div className='hidden'></div>;
   return (
     <div className='fixed inset-x-0 bottom-0 z-50 bg-light dark:bg-dark text-dark dark:text-light rounded-t-3xl py-3 -drop-shadow-2xl w-full lg:w-1/2 mx-auto transitiona-all duration-300'>
         <div className="container px-4 text-center">
